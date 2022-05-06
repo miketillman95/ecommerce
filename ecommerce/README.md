@@ -14,3 +14,4 @@ sanity help - to explore the CLI manual
 Sanity start - opens sanity desk
 
 ```
+  footerBanner: {discount, largeText1, largeText2, saleTime, smallText, midText, desc, product, buttonText, image

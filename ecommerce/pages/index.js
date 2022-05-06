@@ -14,11 +14,11 @@ const Home = ({products, bannerData}) => {
     </div>
 
     <div className = 'products-container'>
-      {/* returns api data */}
+      {/* returns api data from sanity db */}
       {products?.map((product) => <Product key = {product._id} product= {product} />)}
     </div>
 
-    <FooterBanner/>
+    <FooterBanner footerbanner= {bannerData.length && bannerData[0]}/>
 
    </>
   )
