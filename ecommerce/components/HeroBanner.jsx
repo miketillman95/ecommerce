@@ -16,7 +16,7 @@ const HeroBanner = () => {
           <Link href='/product/ID'>
             <button type='button'> button text</button>
           </Link>
-          <div className='description'>
+          <div className='desc'>
             <h5> descrtiption</h5>
               <p> text</p>
 
