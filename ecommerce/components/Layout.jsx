@@ -4,13 +4,14 @@ import Footer from './Footer';
 import NavBar from './NavBar';
 
 const Layout = ({ children }) => {
+  // component created to wrap the application in to display layout throughout the application
+  // children is passed in because it is a parent of the index component
   return (
     <div className="layout">
       <Head>
-        <title>JS Mastery Store</title>
+        <title>Clutch audio shop</title>
       </Head>
       <header>
-        hey
         <NavBar />
       </header>
       <main className="main-container">
