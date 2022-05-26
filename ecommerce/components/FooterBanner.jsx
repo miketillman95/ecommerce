@@ -1,11 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
 import { urlFor } from '../lib/client'
-import Product from './Product'
 
 const FooterBanner = ({footerbanner: {discount, largeText1, largeText2, saleTime, midtext, desc, smallText, product, buttonText, image}}) => {
   // console.log(discount)
-  // destructing the properties in the props 
+  // destructing the properties in the props, passing in the props from the json data
 
   return (
     <div className= 'footer-banner-container' >
