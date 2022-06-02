@@ -9,6 +9,9 @@ const ProductDetails = ({product, products}) => {
   const {image, name, details, price} = product
 //  slice of state so that the index can be asssigned to a variables and displayed dynamically
   const [index, setIndex] = useState(0)
+
+  const { decQty, incQty, qty} = useStateContext
+
   return (
       <div>
         <div className="product-detail-container">
@@ -49,9 +52,9 @@ const ProductDetails = ({product, products}) => {
             <div className="quantity">
               <h3>Quantity:</h3>
               <p className="quantity-desc">
-                <span className="minus" onClick=''><AiOutlineMinus /></span>
-                <span className="num"></span>
-                <span className="plus" onClick=''><AiOutlinePlus /></span>
+                <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
+                <span className="num" onClick="">{qty}</span>
+                <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
               </p>
             </div>
             <div className="buttons">
@@ -75,6 +78,7 @@ const ProductDetails = ({product, products}) => {
     )
   }
 
+  // creating the path and calling the specific product schema
 export const getStaticPaths = async () => {
   const query = `*[_type == "product"] {
     slug {
@@ -98,7 +102,8 @@ export const getStaticPaths = async () => {
 }
 
 
-// api call 
+// api call, passes in the props to the Product detail function to access the schema
+// products lets you query the whole, and product lets you query the product and slug`
 export const getStaticProps = async ({ params: { slug }}) => {
   const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
   const productsQuery = '*[_type == "product"]'
