@@ -1,4 +1,5 @@
 import React from 'react';
+// links the routes
 import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai'
 
