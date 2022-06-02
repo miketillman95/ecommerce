@@ -10,7 +10,7 @@ const ProductDetails = ({product, products}) => {
 //  slice of state so that the index can be asssigned to a variables and displayed dynamically
   const [index, setIndex] = useState(0)
 
-  const { decQty, incQty, qty} = useStateContext
+  const { decQty, incQty, qty} = useStateContext()
 
   return (
       <div>
