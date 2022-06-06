@@ -32,7 +32,7 @@ export const StateContext = ({children}) => {
     }
 
     const incQty = () => {
-        setQty((prevQty) => prevQty -1)
+        setQty((prevQty) => prevQty + 1)
     }
     const decQty = () => {
         setQty((prevQty) => {
@@ -57,7 +57,9 @@ export const StateContext = ({children}) => {
             totalPrice,
             totalQuantities,
             incQty,
-            decQty
+            decQty,
+            onAdd,
+            qty
 
         }}
         >
