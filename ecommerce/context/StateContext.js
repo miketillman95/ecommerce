@@ -10,9 +10,12 @@ export const StateContext = ({children}) => {
     // state for different actions
     const [showCart, setShowCart] = useState(false)
     const [cartItems, setCartItems]= useState([])
-    const [totalPrice, setTotalPrice] = useState()
+    const [totalPrice, setTotalPrice] = useState(0)
     const[totalQuantities, setTotalQuantities] = useState(0)
     const[qty, setQty]= useState(1)
+
+    let foundProduct
+    let index
 
     const onAdd = (product, quantity) =>{
         // logic that checks for items in the cart
@@ -42,6 +45,19 @@ export const StateContext = ({children}) => {
 
     
 
+    }
+
+    const toggleCartItemQuantity = (id, value) => {
+            foundProduct = cartItems.find(() => item._id == id)
+            index = cartItems.findIndex((product) => product._id == id)
+
+            if(value== 'inc') {
+                foundProduct.quantity+= 1
+                cartItems[index] = foundProduct
+
+            }else {
+
+            }
     }
 
     const incQty = () => {
