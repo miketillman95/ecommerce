@@ -10,7 +10,7 @@ const ProductDetails = ({product, products}) => {
 //  slice of state so that the index can be asssigned to a variables and displayed dynamically
   const [index, setIndex] = useState(0)
 
-  const { decQty, incQty, qty} = useStateContext()
+  const { decQty, incQty, qty, onAdd} = useStateContext()
 
   return (
       <div>
@@ -58,7 +58,7 @@ const ProductDetails = ({product, products}) => {
               </p>
             </div>
             <div className="buttons">
-              <button type="button" className="add-to-cart" onClick={() => onAdd(product, )}>Add to Cart</button>
+              <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
               <button type="button" className="buy-now" onClick=''>Buy Now</button>
             </div>
           </div>
@@ -111,7 +111,9 @@ export const getStaticProps = async ({ params: { slug }}) => {
   const product = await client.fetch(query);
   const products = await client.fetch(productsQuery);
 
-  console.log(product);
+  console.log(product, 'slug');
+  console.log(products, 'slugs');
+
 
   return {
     props: { products, product }
