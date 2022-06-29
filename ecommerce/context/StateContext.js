@@ -50,15 +50,20 @@ export const StateContext = ({children}) => {
     const toggleCartItemQuantity = (id, value) => {
             foundProduct = cartItems.find(() => item._id == id)
             index = cartItems.findIndex((product) => product._id == id)
+            const newCartitems = cartItems.filter((item) => item._id !=id)
 
-            if(value== 'inc') {
-                foundProduct.quantity+= 1
-                cartItems[index] = foundProduct
-
-            }else {
-
-            }
-    }
+            if(value === 'inc') {
+                setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 } ]);
+                setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
+                setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
+              } else if(value === 'dec') {
+                if (foundProduct.quantity > 1) {
+                  setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 } ]);
+                  setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
+                  setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
+                }
+              }
+     }
 
     const incQty = () => {
         setQty((prevQty) => prevQty + 1)
