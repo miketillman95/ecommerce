@@ -41,38 +41,35 @@ const Cart = () => {
         )}
       {/* conditional statement to look through and display the cart items schema if there is 1 or more items in the cart */}
         <div className='product-container'>
-          {cartItems.length >= 1 && cartItems.map((item) => (
-            <div className= 'product' key ={item._id}>
-              <img src={urlFor(item?.image[0])}
-              className='cart-product-image'/>
-              <div className='item-desrc'>
-                <div>
+        {cartItems.length >= 1 && cartItems.map((item) => (
+            <div className="product" key={item._id}>
+              <img src={urlFor(item?.image[0])} className="cart-product-image" />
+              <div className="item-desc">
+                <div className="flex top">
                   <h5>{item.name}</h5>
                   <h4>${item.price}</h4>
                 </div>
-                <div className='flex-bottom'></div>
-                <div>
-                <p className="quantity-desc">
-                <span className="minus" onClick={() => toggleCartItemQuantity(item._id, 'dec')}><AiOutlineMinus /></span>
-                <span className="num">0</span>
-                <span className="plus" onClick={() => toggleCartItemQuantity(item._id, 'inc')}><AiOutlinePlus /></span>
-                
-              </p>
+                <div className="flex bottom">
+                  <div>
+                  <p className="quantity-desc">
+                    <span className="minus" onClick={() => toggleCartItemQuantity(item._id, 'dec') }>
+                    <AiOutlineMinus />
+                    </span>
+                    <span className="num" onClick="">{item.quantity}</span>
+                    <span className="plus" onClick={() => toggleCartItemQuantity(item._id, 'inc') }><AiOutlinePlus /></span>
+                  </p>
+                  </div>
+                  <button
+                    type="button"
+                    className="remove-item"
+                    onClick={() => onRemove(item)}
+                  >
+                    <TiDeleteOutline />
+                  </button>
                 </div>
-                <button
-                type='button'
-                className='remove-item'
-                onClick=''
-                >
-
-                <TiDeleteOutline/>
-                </button>
               </div>
-
-
             </div>
-
-          )) } 
+          ))}
         </div>
         {cartItems.length >= 1 && (
           <div className='cart-bottom'>
