@@ -18,14 +18,14 @@ export const StateContext = ({children}) => {
     let index
 
     const onAdd = (product, quantity) =>{
-        // logic that checks for items in the cart
+        // logic that checks for items in the cart by matching the item added with the id on the product 
         const checkProductInCart = cartItems.find((item) => item._id ==product._id)
 
         setTotalPrice((prevTotalPrice) => prevTotalPrice+ product.price * quantity)
         setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity)
 
         if(checkProductInCart){
-          
+            //  updated cart maps through the cart items and if the product matches the id returns the product spread with the new quantity
             const updatedCartItems = cartItems.map((cartProduct) => {
                 if (cartProduct._id === product._id) return {
                     ...cartProduct,
@@ -50,13 +50,18 @@ export const StateContext = ({children}) => {
     const toggleCartItemQuantity = (id, value) => {
             foundProduct = cartItems.find(() => item._id == id)
             index = cartItems.findIndex((product) => product._id == id)
-            const newCartitems = cartItems.filter((item) => item._id !=id)
+            const newCartItems = cartItems.filter((item) => item._id !=id)
 
             if(value === 'inc') {
+                // updating the cartitems with the current cartItems, spreading the properties and increasing by one
                 setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 } ]);
+                console.log(foundProduct)
+
+
                 setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
                 setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
               } else if(value === 'dec') {
+                  // updating the cartitems with the current cartItems, spreading the properties and decreasing by one
                 if (foundProduct.quantity > 1) {
                   setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 } ]);
                   setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
@@ -95,6 +100,7 @@ export const StateContext = ({children}) => {
             decQty,
             onAdd,
             qty,
+            toggleCartItemQuantity
 
         }}
         >
