@@ -4,6 +4,7 @@ import {urlFor} from '../lib/client'
 
 const HeroBanner = ({heroBanner}) => {
   // herobanner props lets you pass in the info from the json data
+  // comes from the 
   return (
     <div className=' hero-banner-container'>
       <div>
@@ -18,11 +19,11 @@ const HeroBanner = ({heroBanner}) => {
         <img src= {urlFor(heroBanner.image)} alt='headphones' className='hero-banner-image'/>
         <div>
           <Link href={`/product/${heroBanner.product}`} >
-            <button type='button'> {heroBanner.desc}</button>
+            <button type='button'> {heroBanner.buttonText}</button>
           </Link>
           <div className='desc'>
             <h5> description</h5>
-              <p> text</p>
+              <p>{heroBanner.desc}</p>
 
           </div>
         </div>
