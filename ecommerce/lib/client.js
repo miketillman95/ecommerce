@@ -1,6 +1,6 @@
 import sanityClient from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
-
+// utils function
 export const client = sanityClient({
     projectId: '4fjfwg9i',
     dataset: 'production',

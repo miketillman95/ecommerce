@@ -7,6 +7,16 @@ export default async function handler(req, res) {
     try {
       // Create Checkout Sessions from body params.
       const params = {
+          submit_type: 'pay',
+          mode: 'payment',
+          payment_method_types: ['card'],
+          billing_address_collection: 'auto',
+          shipping_options: [
+              {shipping_rate: 'shr_1LIsdPHYCz07GQfsIV4lD1Nm'},
+              {shipping_rate: 'shr_1LIsebHYCz07GQfsYLhgq5iH'},
+              
+          ],
+
 
         line_items: [
             {
@@ -19,7 +29,7 @@ export default async function handler(req, res) {
           success_url: `${req.headers.origin}/?success=true`,
           cancel_url: `${req.headers.origin}/?canceled=true`,
       }
-      
+
       const session = await stripe.checkout.sessions.create(params);
       res.redirect(303, session.url);
     } catch (err) {
