@@ -14,6 +14,7 @@ const Cart = () => {
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
+    // api request to stripe
 
     const response = await fetch('/api/stripe', {
       method: 'POST',
@@ -28,6 +29,7 @@ const Cart = () => {
     const data = await response.json();
 
     toast.loading('Redirecting...');
+    // stripes built in redirect to checkout
 
     stripe.redirectToCheckout({ sessionId: data.id });
   }
@@ -43,6 +45,7 @@ const Cart = () => {
           <span className="heading">Your Cart</span>
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
+      {/* conditional statement to go to home screen if cart is empty*/}
 
         {cartItems.length < 1 && (
           <div className="empty-cart">
@@ -59,6 +62,7 @@ const Cart = () => {
             </Link>
           </div>
         )}
+      {/* conditional statement to look through and display the cart items schema if there is 1 or more items in the cart */}
 
         <div className="product-container">
           {cartItems.length >= 1 && cartItems.map((item) => (
