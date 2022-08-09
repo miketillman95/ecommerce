@@ -1,6 +1,6 @@
+import Stripe from 'stripe'
 
-
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 // api route
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
           ],
 
 
-        line_items: req.body.cartItems.map((item) =>{
+        line_items: req.body.map((item) =>{
           const img = item.image[0].asset._ref
           const newImage = img.replace('image-', 'https://cdn.sanity.io/image/4fjfwg9i/production').replace('-webp', '.webp')
           console.log('IMAGE', newImage)
