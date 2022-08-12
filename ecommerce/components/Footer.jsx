@@ -8,9 +8,7 @@ const Footer = () => {
       <p>
         Tillman products all rights reserved
         </p>
-        <p className='icons'>
-          <AiFillInstagram/>
-          
+        <p className='icons'>          
           <a href='https://twitter.com/mikeatillman'>
           <AiOutlineTwitter/>
           </a>

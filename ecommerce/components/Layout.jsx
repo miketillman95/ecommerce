@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     <div className="layout">
       <Head>
         <title>Funko Pop Shop</title>
-        <link rel='icon' type= 'image/jpeg' href='ecommerce/pics/naruto-shippuuden-masashi-kishimoto-uzumaki-naruto-jiraiya-wallpaper-preview.jpeg'/>
+        <link rel='icon' type= 'image/jpeg' href="ecommerce/pics/naruto-shippuuden-masashi-kishimoto-uzumaki-naruto-jiraiya-wallpaper-preview.jpeg"/>
       </Head>
       <header>
         <NavBar />
