@@ -9,7 +9,8 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Head>
-        <title>Clutch audio shop</title>
+        <title>Funko Pop Shop</title>
+        <link rel='icon' type= 'image/jpeg' href='ecommerce/pics/naruto-shippuuden-masashi-kishimoto-uzumaki-naruto-jiraiya-wallpaper-preview.jpeg'/>
       </Head>
       <header>
         <NavBar />
