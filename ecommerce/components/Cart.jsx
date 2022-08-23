@@ -45,7 +45,7 @@ const Cart = () => {
           <span className="heading">Your Cart</span>
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
-      {/* conditional statement to go to home screen if cart is empty*/}
+      {/* conditional statement to show page that the cart is empty*/}
 
         {cartItems.length < 1 && (
           <div className="empty-cart">
