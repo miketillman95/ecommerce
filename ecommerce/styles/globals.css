@@ -619,12 +619,12 @@ margin-top: 160px;
   margin-top: 10px;
 }
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:900px) {
   .hero-banner-container{
     height: 560px;
   }
   .hero-banner-image{
-    width: 77%;
+    width: 57%;
     height: 62%;
     top: -2%;
     right: -6%;
@@ -634,11 +634,8 @@ margin-top: 160px;
     margin-top: 80px;
   }
   .footer-banner-image{
-    width: 77%;
-    left: 30%;
-    top: 6%;
-    height: 56%;
-    padding-top: 100px;
+   
+    display:none
   }
   .banner-desc .left h3{
     font-weight: 900;
