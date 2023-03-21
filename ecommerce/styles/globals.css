@@ -619,7 +619,7 @@ margin-top: 160px;
   margin-top: 10px;
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:850px) {
   .hero-banner-container{
     height: 560px;
   }
@@ -628,6 +628,7 @@ margin-top: 160px;
     height: 62%;
     top: -2%;
     right: -6%;
+    display: none;
   }
   .footer-banner-container{
     height: 560px;
@@ -675,7 +676,7 @@ margin-top: 160px;
    bottom: 60px;
   }
   .product-detail-container{
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     }
   .product-detail-container .product-detail-image{
     width: 350px;
